@@ -147,6 +147,24 @@
       letter-spacing: .1em;
     }
 
+    /* Entry badge */
+.entry-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:.55rem 1rem;
+  border:1px solid rgba(201,168,76,.45);
+  background:rgba(201,168,76,.08);
+  color:var(--gold2);
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  border-radius:999px;
+  box-shadow:0 0 24px rgba(201,168,76,.12);
+  white-space:nowrap;
+}
+    
     /* Prize pool */
     .prize-pool-section {
       background: linear-gradient(180deg, #0F1E38 0%, #0B1628 100%);
@@ -456,12 +474,20 @@
       </h1>
 
       <!-- Prize -->
-      <div class="mb-3">
-        <span class="display prize-badge" style="font-size:clamp(1.4rem,3vw,2.1rem);font-weight:600">
-          $15,000+ in Prizes.
-        </span>
-        <span class="display" style="font-size:clamp(1.4rem,3vw,2.1rem);font-weight:300;color:var(--muted)"> No Entry Fee.</span>
-      </div>
+      <div class="mb-4 flex flex-wrap items-center gap-4">
+
+  <span 
+    class="display prize-badge" 
+    style="font-size:clamp(1.4rem,3vw,2.1rem);font-weight:600"
+  >
+    $15,000+ in Prizes.
+  </span>
+
+  <span class="entry-badge">
+    No Entry Fee
+  </span>
+
+</div>
 
       <p style="color:var(--muted);font-size:.95rem;margin-bottom:2.5rem;max-width:48ch;line-height:1.65">
         Our 2nd stock picking contest is here. Select stocks from three major conferences, build your portfolio, and compete for cash prizes and bragging rights across the microcap community.
