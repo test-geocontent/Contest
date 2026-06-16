@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The 2026 Microcap Stock Picking Contest | Sponsored by GeoInvesting & MS Microcaps</title>
+  <title>Thes 2026 Microcap Stock Picking Contest | Sponsored by GeoInvesting & MS Microcaps</title>
   <meta name="description" content="$15,000+ in prizes. No entry fee. Compete in the 2026 Microcap Stock Picking Contest across three major conferences. Sponsored by GeoInvesting and MS Microcaps." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -839,10 +839,9 @@
 
           <div id="form-wrap">
 <form
+  id="email-form"
   action="https://geoinvesting.us11.list-manage.com/subscribe/post?u=970d0b8730f27522bf5090f33&id=50a186c16c"
   method="POST"
-  target="hidden_iframe"
-  onsubmit="handleSubmitUI()"
 >
 	<div class="mb-4">
   <label class="block text-xs tracking-widest uppercase mb-2" style="color:var(--muted)">
@@ -865,7 +864,6 @@
 </button>
 	</form>
           </div>
-			<iframe name="hidden_iframe" style="display:none;"></iframe>
 
           <div id="form-success" class="hidden text-center py-6">
             <div style="font-size:2rem;margin-bottom:.75rem">✦</div>
@@ -1297,6 +1295,18 @@ function handleSubmitUI() {
       ctx.strokeStyle = color;
       ctx.lineWidth   = 1.4;
       ctx.stroke();
+		
+/* ── MAILCHIMP SUBMIT + UI FEEDBACK ── */
+document.getElementById("email-form").addEventListener("submit", function () {
+  const formWrap = document.getElementById("form-wrap");
+  const success = document.getElementById("form-success");
+
+  // show immediate feedback (since Mailchimp is async)
+  setTimeout(() => {
+    formWrap.style.display = "none";
+    success.classList.remove("hidden");
+  }, 400);
+});
 
       // Gradient fill
       const grad = ctx.createLinearGradient(0, 0, 0, H);
