@@ -838,16 +838,34 @@
           <div class="display font-semibold text-lg mb-6" style="color:var(--white)">Join the Early Access List</div>
 
           <div id="form-wrap">
-            <div class="mb-4">
-              <label class="block text-xs tracking-widest uppercase mb-2" style="color:var(--muted)">Email Address</label>
-              <input type="email" id="email-input" class="email-input" placeholder="you@example.com" autocomplete="email" />
-              <div id="email-error" class="text-xs mt-1.5 hidden" style="color:#F87171">Please enter a valid email address.</div>
-            </div>
-            <button class="btn-gold w-full py-3 mt-2" onclick="submitForm()">
-              Notify Me When Contest Begins
-            </button>
-            <p class="text-xs mt-4 text-center" style="color:var(--muted)">No spam. Unsubscribe anytime. We will never share your information.</p>
+<form
+  action="https://geoinvesting.us11.list-manage.com/subscribe/post?u=970d0b8730f27522bf5090f33&id=50a186c16c"
+  method="POST"
+  target="hidden_iframe"
+  onsubmit="handleSubmitUI()"
+>
+	<div class="mb-4">
+  <label class="block text-xs tracking-widest uppercase mb-2" style="color:var(--muted)">
+    Email Address
+  </label>
+
+  <input
+    type="email"
+    name="EMAIL"
+    id="email-input"
+    class="email-input"
+    placeholder="you@example.com"
+    required
+    autocomplete="email"
+  />
+</div>
+
+<button type="submit" class="btn-gold w-full py-3 mt-2">
+  Notify Me When Contest Begins
+</button>
+	</form>
           </div>
+			<iframe name="hidden_iframe" style="display:none;"></iframe>
 
           <div id="form-success" class="hidden text-center py-6">
             <div style="font-size:2rem;margin-bottom:.75rem">✦</div>
@@ -1222,38 +1240,6 @@ function toggleFaq(btn) {
   document.querySelectorAll('.faq-body').forEach(b => b.classList.remove('open'));
   document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('open'));
   if (!open) { body.classList.add('open'); icon.classList.add('open'); }
-}
-
-/* ── Email form ── */
-function submitForm() {
-  const emailInput = document.getElementById("email-input");
-  const email = emailInput.value.trim();
-
-  const emailError = document.getElementById("email-error");
-
-  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  if (!isValid) {
-    emailError.classList.remove("hidden");
-    return;
-  }
-
-  emailError.classList.add("hidden");
-
-  const url = "https://geoinvesting.us11.list-manage.com/subscribe/post?u=970d0b8730f27522bf5090f33&id=50a186c16c";
-
-  const formData = new FormData();
-  formData.append("EMAIL", email);
-  formData.append("b_970d0b8730f27522bf5090f33_50a186c16c", "");
-
-  fetch(url, {
-    method: "POST",
-    body: formData,
-    mode: "no-cors"
-  });
-
-  document.getElementById("form-wrap").style.display = "none";
-  document.getElementById("form-success").classList.remove("hidden");
 }
 
 /* ── Animated chart canvas ── */
