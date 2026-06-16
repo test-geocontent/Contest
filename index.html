@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The 2026 Microcap Stock Picking Contest | Sponsored by GeoInvesting & MS Microcaps</title>
+  <title>Thes 2026 Microcap Stock Picking Contest | Sponsored by GeoInvesting & MS Microcaps</title>
   <meta name="description" content="$15,000+ in prizes. No entry fee. Compete in the 2026 Microcap Stock Picking Contest across three major conferences. Sponsored by GeoInvesting and MS Microcaps." />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -475,7 +475,7 @@
       <a href="https://geoinvesting.com" target="_blank" class="text-xs tracking-widest uppercase hover:text-yellow-300 transition-colors" style="color:var(--muted)">About GeoInvesting</a>
       <a href="https://geoinvesting.com/learn" target="_blank" class="text-xs tracking-widest uppercase hover:text-yellow-300 transition-colors" style="color:var(--muted)">Why Microcaps?</a>
       <a href="https://mscliffnotes.substack.com" target="_blank" class="text-xs tracking-widest uppercase hover:text-yellow-300 transition-colors" style="color:var(--muted)">About Cliff Notes Substack</a>
-      <a href="#register" class="btn-gold text-xs py-2 px-4">Get Notified</a>
+      <a href="#register" class="btn-gold text-xs py-2 px-4">Gets Notified</a>
     </div>
 
     <!-- Hamburger -->
@@ -838,7 +838,11 @@
           <div class="display font-semibold text-lg mb-6" style="color:var(--white)">Join the Early Access List</div>
 
           <div id="form-wrap">
-<form id="email-form">
+<form
+  id="email-form"
+  action="https://geoinvesting.us11.list-manage.com/subscribe/post?u=970d0b8730f27522bf5090f33&id=50a186c16c"
+  method="POST"
+>
 	<div class="mb-4">
   <label class="block text-xs tracking-widest uppercase mb-2" style="color:var(--muted)">
     Email Address
@@ -861,7 +865,6 @@
 	</form>
           </div>
 
-			<iframe name="hidden_iframe" style="display:none;"></iframe>
           <div id="form-success" class="hidden text-center py-6">
             <div style="font-size:2rem;margin-bottom:.75rem">✦</div>
             <div class="display font-semibold text-lg mb-2" style="color:var(--gold2)">Registration Complete.</div>
@@ -1292,6 +1295,18 @@ function handleSubmitUI() {
       ctx.strokeStyle = color;
       ctx.lineWidth   = 1.4;
       ctx.stroke();
+		
+/* ── MAILCHIMP SUBMIT + UI FEEDBACK ── */
+document.getElementById("email-form").addEventListener("submit", function () {
+  const formWrap = document.getElementById("form-wrap");
+  const success = document.getElementById("form-success");
+
+  // show immediate feedback (since Mailchimp is async)
+  setTimeout(() => {
+    formWrap.style.display = "none";
+    success.classList.remove("hidden");
+  }, 400);
+});
 
       // Gradient fill
       const grad = ctx.createLinearGradient(0, 0, 0, H);
@@ -1316,24 +1331,6 @@ function handleSubmitUI() {
     }
   }
   draw();
-
-	/* ── MAILCHIMP SUCCESS ── */
-
-	document.getElementById("email-form").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const email = document.getElementById("email-input").value;
-
-  fetch("https://geoinvesting.us11.list-manage.com/subscribe/post-json?u=970d0b8730f27522bf5090f33&id=50a186c16c&c=?", {
-    method: "GET",
-    mode: "no-cors"
-  });
-
-  // instantly show success UI
-  document.getElementById("form-wrap").style.display = "none";
-  document.getElementById("form-success").classList.remove("hidden");
-});
-
 })();
 </script>
 </body>
