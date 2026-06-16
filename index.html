@@ -8,7 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <style>
+	<style>
     :root {
       --navy:    #0B1628;
       --navy2:   #0F1E38;
@@ -1226,22 +1226,35 @@ function toggleFaq(btn) {
 
 /* ── Email form ── */
 function submitForm() {
-  const input = document.getElementById('email-input');
-  const err   = document.getElementById('email-error');
-  const val   = input.value.trim();
-  if (!val || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
-    err.classList.remove('hidden');
-    input.style.borderColor = '#F87171';
+  const emailInput = document.getElementById("email-input");
+  const email = emailInput.value.trim();
+
+  const emailError = document.getElementById("email-error");
+
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  if (!isValid) {
+    emailError.classList.remove("hidden");
     return;
   }
-  err.classList.add('hidden');
-  document.getElementById('form-wrap').classList.add('hidden');
-  document.getElementById('form-success').classList.remove('hidden');
+
+  emailError.classList.add("hidden");
+
+  const url = "https://geoinvesting.us11.list-manage.com/subscribe/post?u=970d0b8730f27522bf5090f33&id=50a186c16c";
+
+  const formData = new FormData();
+  formData.append("EMAIL", email);
+  formData.append("b_970d0b8730f27522bf5090f33_50a186c16c", "");
+
+  fetch(url, {
+    method: "POST",
+    body: formData,
+    mode: "no-cors"
+  });
+
+  document.getElementById("form-wrap").style.display = "none";
+  document.getElementById("form-success").classList.remove("hidden");
 }
-document.getElementById('email-input').addEventListener('input', function() {
-  document.getElementById('email-error').classList.add('hidden');
-  this.style.borderColor = '';
-});
 
 /* ── Animated chart canvas ── */
 (function() {
