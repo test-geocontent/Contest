@@ -108,6 +108,21 @@
 }
     .conf-card:hover::before { opacity: 1; }
 
+/* Beyond the contest cards */
+.product-card{
+  border:1px solid rgba(255,255,255,.06);
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+  backdrop-filter:blur(10px);
+  transition:all .25s ease;
+  text-decoration:none;
+}
+
+.product-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(201,168,76,.28);
+  box-shadow:0 12px 40px rgba(0,0,0,.28);
+}
+
 /* Conference website link */
 .conf-link{
   display:inline-flex;
@@ -902,6 +917,143 @@
         </button>
         <div class="faq-body">The 2026 contest spans three conferences: Planet MicroCap (Las Vegas, June 2026), SmallCap Discoveries (Vancouver, September 2026), and LD Micro (Los Angeles, October 2026). Eligible company lists for each conference will be published when registration opens.</div>
       </div>
+
+    </div>
+  </div>
+</section>
+<!-- Beyond the Contest -->
+<section class="relative py-24 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="max-w-4xl mb-16">
+      <div class="mono text-xs mb-4" style="color:var(--gold);letter-spacing:.14em">
+        BEYOND THE CONTEST
+      </div>
+
+      <h2 class="display text-4xl md:text-5xl font-semibold mb-6 leading-tight" style="color:var(--white)">
+        The Work Starts After the Conference Ends
+      </h2>
+
+      <p class="text-lg leading-relaxed mb-6" style="color:var(--muted)">
+        Planet MicroCap. SmallCap Discoveries. LD Micro. Three of the strongest sources of microcap idea flow on the calendar.
+        Across the three conferences, investors will see hundreds of companies pitch throughout 2026.
+      </p>
+
+      <p class="text-lg leading-relaxed mb-6" style="color:var(--muted)">
+        We’ll be carefully monitoring the stocks selected throughout the contest because we believe these conferences bring together
+        some of the sharpest investors in the smaller-cap world.
+      </p>
+
+      <p class="text-lg leading-relaxed" style="color:var(--muted)">
+        The challenge isn’t finding ideas for a day. The challenge is figuring out which companies continue executing
+        twelve to twenty-four months after the presentation.
+      </p>
+    </div>
+
+    <!-- Highlight line -->
+    <div class="mb-14 p-5 rounded-2xl"
+         style="
+           border:1px solid rgba(201,168,76,.22);
+           background:linear-gradient(180deg, rgba(201,168,76,.08), rgba(201,168,76,.02));
+         ">
+      <div class="display text-xl md:text-2xl leading-relaxed" style="color:var(--white)">
+        Below are the research platforms powering that process every day across the U.S. and Canadian microcap universe.
+      </div>
+    </div>
+
+    <!-- Product cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- InfoArb -->
+      <a
+        href="https://infoarb.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="product-card block p-7 rounded-3xl"
+      >
+        <div class="mono text-xs mb-4" style="color:var(--gold);letter-spacing:.12em">
+          PLATFORM I
+        </div>
+
+        <h3 class="display text-2xl font-semibold mb-4" style="color:var(--white)">
+          InfoArb Monitor
+        </h3>
+
+        <p class="leading-relaxed mb-6" style="color:var(--muted)">
+          Every company you saw pitch keeps filing, reporting earnings, and releasing news whether you're watching or not.
+          InfoArb Monitor tracks press releases, SEC filings, and earnings call transcripts across the U.S. and Canadian
+          microcap universe — including every presenter at all three conferences.
+        </p>
+
+        <p class="leading-relaxed mb-6" style="color:var(--muted)">
+          The place where a thesis formed during a fifteen-minute pitch either gets confirmed by execution — or quietly breaks.
+        </p>
+
+        <div class="conf-link">
+          Visit Platform →
+        </div>
+      </a>
+
+      <!-- Cliff Notes -->
+      <a
+        href="https://mscliffnotes.substack.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="product-card block p-7 rounded-3xl"
+      >
+        <div class="mono text-xs mb-4" style="color:var(--gold);letter-spacing:.12em">
+          PLATFORM II
+        </div>
+
+        <h3 class="display text-2xl font-semibold mb-4" style="color:var(--white)">
+          Microcap Investing Cliff Notes
+        </h3>
+
+        <p class="leading-relaxed mb-6" style="color:var(--muted)">
+          A quality filter for the universe these conferences put in front of investors.
+          The Multibagger Quality Index applies a systematic process that merges quality and multibagger factors our team has invested in for over 30 years.
+        </p>
+
+        <p class="leading-relaxed mb-6" style="color:var(--muted)">
+          Since launch in 2022, 76 out of 144 stocks in the index became multibaggers.
+          Losers remain in the index for transparency. One to three new companies are added every month.
+        </p>
+
+        <div class="conf-link">
+          Visit Platform →
+        </div>
+      </a>
+
+      <!-- GeoInvesting -->
+      <a
+        href="https://geoinvesting.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="product-card block p-7 rounded-3xl"
+      >
+        <div class="mono text-xs mb-4" style="color:var(--gold);letter-spacing:.12em">
+          PLATFORM III
+        </div>
+
+        <h3 class="display text-2xl font-semibold mb-4" style="color:var(--white)">
+          GeoInvesting
+        </h3>
+
+        <p class="leading-relaxed mb-6" style="color:var(--muted)">
+          Seventeen years of archived microcap research.
+          Many companies presenting this year have been tracked here across multiple cycles and management teams.
+        </p>
+
+        <p class="leading-relaxed mb-6" style="color:var(--muted)">
+          Frauds we identified. Theses that worked. Theses that failed — and why.
+          When the Cliff Note isn’t enough, this is the next layer down.
+        </p>
+
+        <div class="conf-link">
+          Visit Platform →
+        </div>
+      </a>
 
     </div>
   </div>
