@@ -115,6 +115,7 @@
   backdrop-filter:blur(10px);
   transition:all .25s ease;
   text-decoration:none;
+    cursor: pointer;
 
   display:flex;
   flex-direction:column;
@@ -1035,7 +1036,7 @@
       </a>
 
 <!-- GeoInvesting -->
-<a href="https://geoinvesting.com/" target="_blank" rel="noopener noreferrer" class="product-card block p-7 rounded-3xl">
+<div class="product-card block p-7 rounded-3xl clickable" data-url="https://geoinvesting.com/">
 
   <div class="mono text-xs mb-4" style="color:var(--gold);letter-spacing:.12em">
     PLATFORM III
@@ -1049,15 +1050,15 @@
     Seventeen years of archived microcap research. Many companies presenting this year have been tracked here across multiple cycles and management teams.
   </p>
 
-  <p class="leading-relaxed mb-6" style="color:var(--muted)">
-    Frauds we identified. Theses that worked. Theses that failed — and why. When the Cliff Note isn’t enough, this is the next layer down.
-  </p>
+<p class="leading-relaxed mb-6" style="color:var(--muted)">
+  Frauds we identified (<a href="https://www.imdb.com/title/tt7215388/" target="_blank" rel="noopener noreferrer" style="color:var(--gold2);text-decoration:underline;">The China Hustle</a>, Zombie Index). Theses that worked. Theses that didn't, and why. When the Cliff Note isn't enough, this is the next floor down.
+</p>
 
-  <div class="conf-link">
-    Visit Platform →
-  </div>
-
+<a href="https://geoinvesting.com/" class="conf-link" target="_blank" rel="noopener noreferrer">
+  Visit Platform →
 </a>
+
+</div>
   </div>
 </section>
 
@@ -1171,6 +1172,21 @@ const tickers = [
   'USAQ','NXLV','PHX','CZZL.NE','NBM.V','ARG.TO','DHX','MCB','SUNXF',
   'KLYG','NWTG','TRCK','BLM','AUUA.V','AKA','ACON'
 ];
+
+/* ── Product box ── */
+document.querySelectorAll('.clickable').forEach(card => {
+  card.addEventListener('click', (e) => {
+    const url = card.dataset.url;
+    if (url) window.open(url, '_blank');
+  });
+
+  // prevent card click when clicking real links inside
+  card.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+  });
+});
 
 const inner = document.getElementById('ticker-inner');
 
