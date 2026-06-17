@@ -365,7 +365,7 @@
     .ticker-inner {
       display: flex; gap: 0;
       width: max-content;
-      animation: ticker 90s linear infinite;
+      animation: ticker 120s linear infinite;
     }
     @keyframes ticker {
       0%   { transform: translateX(0); }
@@ -505,19 +505,41 @@
     <div class="hero-content max-w-4xl">
 
       <!-- Eyebrow / sponsor -->
-      <div class="flex flex-wrap items-center gap-3 mb-8">
-        <span class="eyebrow">2nd Annual Stock Picking Contest</span>
-        <span style="color:var(--border)">|</span>
-        <span class="sponsor-pill">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="currentColor" stroke-width="1.2" style="color:var(--gold)"/></svg>
-          Sponsored by GeoInvesting &amp; MS Microcaps
-        </span>
-      </div>
+<div class="mb-4">
+  <span class="eyebrow">2nd Annual Stock Picking Contest</span>
+</div>
 
-      <!-- Main headline -->
-      <h1 class="display headline-main mb-4">
-        The 2026 Microcap<br/>Stock Picking Contest
-      </h1>
+<div class="flex flex-wrap items-center gap-6 mb-8">
+
+  <img
+    src="https://microcapcontest.b-cdn.net/geo-png-24.png"
+    alt="GeoInvesting"
+    style="height:70px;width:auto;"
+  />
+
+  <span
+    style="
+      color:var(--gold);
+      font-size:1.25rem;
+      opacity:.7;
+      font-weight:600;
+    "
+  >
+    ×
+  </span>
+
+  <img
+    src="https://microcapcontest.b-cdn.net/MS%20Cliff%20Notes%20Logo.png"
+    alt="MS Cliff Notes"
+    style="height:70px;width:auto;"
+  />
+
+</div>
+
+<!-- Main headline -->
+<h1 class="display headline-main mb-4">
+  The 2026 Microcap<br/>Stock Picking Contest
+</h1>
 
       <!-- Prize -->
       <div class="mb-4 flex flex-wrap items-center gap-4">
@@ -543,6 +565,7 @@
       <div class="flex flex-wrap gap-4 mb-12">
         <a href="#register" class="btn-gold">Register Now</a>
       </div>
+
 
 <!-- Conference cards -->
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12 conf-grid">
@@ -821,8 +844,43 @@
         <div class="section-label mb-4">Early Access</div>
         <h2 class="display font-semibold mb-5" style="font-size:clamp(1.8rem,3vw,2.6rem);color:var(--white)">Registration Is Now Open</h2>
         <p style="color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:2rem">
-  Registration is now open for the 2026 Microcap Stock Picking Contest. Secure your spot before the contest officially begins 10 days after the conclusion of the Planet Microcap conference in Vegas (June 16, 2026 to June 18, 2026).
+  Registration is now open for the 2026 Microcap Stock Picking Contest. Secure your spot before the <strong style="color:var(--white)">
+contest officially begins 10 days after the conclusion of the Planet MicroCap conference in Vegas (June 16, 2026 to June 18, 2026).
+</strong>
 </p>
+<!-- Contest Countdown -->
+<div class="mb-8">
+
+  <div class="text-xs tracking-widest uppercase mb-4"
+       style="color:var(--gold);font-weight:500">
+    Contest Starts In
+  </div>
+
+  <div class="flex gap-3 flex-wrap">
+
+    <div class="countdown-block">
+      <div class="countdown-num" id="days">00</div>
+      <div class="countdown-lbl">Days</div>
+    </div>
+
+    <div class="countdown-block">
+      <div class="countdown-num" id="hours">00</div>
+      <div class="countdown-lbl">Hours</div>
+    </div>
+
+    <div class="countdown-block">
+      <div class="countdown-num" id="minutes">00</div>
+      <div class="countdown-lbl">Minutes</div>
+    </div>
+
+    <div class="countdown-block">
+      <div class="countdown-num" id="seconds">00</div>
+      <div class="countdown-lbl">Seconds</div>
+    </div>
+
+  </div>
+
+</div>
 
         <div>
   <div class="benefit-item"><span class="benefit-check">✦</span> Receive your official contest registration confirmation</div>
@@ -1092,11 +1150,25 @@
 <section class="py-20 px-6" style="background:var(--navy2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="max-w-4xl mx-auto text-center">
     <div class="section-label mb-8 reveal">Presented By</div>
-    <div class="flex flex-wrap items-center justify-center gap-6 reveal">
-      <div class="sponsor-logo">GeoInvesting</div>
-      <div style="color:var(--border);font-size:1.2rem">&amp;</div>
-      <div class="sponsor-logo">MS Microcaps</div>
-    </div>
+    <div class="flex flex-wrap items-center justify-center gap-10 reveal">
+
+  <img
+    src="https://microcapcontest.b-cdn.net/geo-png-24.png"
+    alt="GeoInvesting"
+    style="height:60px;width:auto"
+  />
+
+  <div style="color:var(--border);font-size:1.5rem">
+    &amp;
+  </div>
+
+  <img
+    src="https://microcapcontest.b-cdn.net/MS%20Cliff%20Notes%20Logo.png"
+    alt="MS Cliff Notes"
+    style="height:52px;width:auto"
+  />
+
+</div>
     <p class="text-xs mt-6 reveal" style="color:var(--muted);max-width:50ch;margin-left:auto;margin-right:auto;line-height:1.7">
       GeoInvesting and MS Microcaps research microcap stocks, track management teams, and analyze market opportunities. This contest gives independent investors, analysts, fund managers, and newsletter writers a structured way to showcase stock-picking skill in the microcap landscape.
     </p>
@@ -1230,6 +1302,32 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+/* ── Contest Countdown ── */
+
+// Contest begins June 28, 2026 at midnight Eastern
+const contestStart = new Date("2026-06-28T00:00:00-04:00");
+
+function updateCountdown() {
+
+  const now = new Date();
+  const diff = contestStart - now;
+
+  if (diff <= 0) return;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById('days').textContent = days;
+  document.getElementById('hours').textContent = hours;
+  document.getElementById('minutes').textContent = minutes;
+  document.getElementById('seconds').textContent = seconds;
+
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
 /* ── FAQ toggle ── */
 function toggleFaq(btn) {
   const body = btn.nextElementSibling;
